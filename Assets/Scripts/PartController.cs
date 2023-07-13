@@ -6,31 +6,20 @@ namespace Syoujyo_no_Yume
     {
         // アドベンチャーパートの親ゲームオブジェクトを設定してください
         [SerializeField]
-        GameObject adventurePartObject = null;
+        private GameObject adventurePartObject = null;
         [SerializeField]
-        Player player = null;
+        private Player player = null;
 
-        private void Update()
+        public void OnAdventurePart()
         {
-            if (adventurePartObject.activeSelf)
-            {
-                if (player.enabled)
-                {
-                    player.enabled = false;
-                }
-            }
-            else
-            {
-                if (!player.enabled)
-                {
-                    player.enabled = true;
-                }
-            }
+            adventurePartObject.SetActive(true);
+            player.Inactive();
         }
 
         public void OnActionPart()
         {
-            adventurePartObject.SetActive(true);
+            adventurePartObject.SetActive(false);
+            player.Active();
         }
     }
 }

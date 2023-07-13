@@ -14,4 +14,4 @@ CharacterModeの設定はキャラクター名の省略が可能です。
 <CharacterMode>あゆむ＿喜び
 <Message>見ていただきありがとうございます。自由に設定していただけるとうれしいです。
 
-<Inactive> 1
+<UserCommand>ActionPart

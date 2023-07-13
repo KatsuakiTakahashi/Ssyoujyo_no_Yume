@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 551600590861043187}
   - component: {fileID: 551600590861043184}
   - component: {fileID: 551600590861043185}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MidleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
