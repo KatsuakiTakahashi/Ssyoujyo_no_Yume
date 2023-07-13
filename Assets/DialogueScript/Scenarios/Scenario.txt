@@ -1,17 +1,18 @@
-<Message> ここのテキストが表示されます。
+<Message> セリフ
 
-<CharacterMode>あゆむ_喜び<Message>１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０
+<CharacterMode>あゆむ_喜び
+<Message> セリフ
 
 <CharacterMode>あゆむ_驚き
-<Message>命令と設定の間に空白を挟まなくても問題ありません。
+<Message> セリフ
+
+<UserCommand>ActionPart
 
 <CharacterMode>あゆむ_影
 <CharacterMode>あゆむ_驚き
-<Message>
-CharacterModeの設定はキャラクター名の省略が可能です。
-省略した場合Nameで設定されたキャラクターのモード設定となります。
+<Message> セリフ
 
 <CharacterMode>あゆむ＿喜び
-<Message>見ていただきありがとうございます。自由に設定していただけるとうれしいです。
+<Message> セリフ
 
 <UserCommand>ActionPart

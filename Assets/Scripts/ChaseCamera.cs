@@ -11,6 +11,9 @@ namespace Syoujyo_no_Yume
         [SerializeField]
         private Vector2 offset = new(0f, 1.5f);
 
+        [SerializeField]
+        private float upCameraPosiY = 10f;
+
         private void Start()
         {
             TargetChase();
@@ -26,6 +29,14 @@ namespace Syoujyo_no_Yume
         {
             var position = transform.position;
             position.x = target.position.x + offset.x;
+            if (target.position.y > upCameraPosiY)
+            {
+                position.y = upCameraPosiY + offset.y;
+            }
+            else
+            {
+                position.y = offset.y;
+            }
             transform.position = position;
         }
     }

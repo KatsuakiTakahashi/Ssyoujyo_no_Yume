@@ -228,6 +228,11 @@ namespace Syoujyo_no_Yume
             {
                 animator.SetTrigger(LandingId);
             }
+            else if (CurrentPlayerState == PlayerState.Idle)
+            {
+                enabled = false;
+                return;
+            }
 
             SetIdleState();
             enabled = false;

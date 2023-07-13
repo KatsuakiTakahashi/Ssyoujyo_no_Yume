@@ -2,31 +2,27 @@ using UnityEngine;
 
 namespace Syoujyo_no_Yume
 {
-    public class ProhibitedArea : MonoBehaviour
+    public class FrontProhibitedArea : MonoBehaviour
     {
+        [SerializeField]
+        private ActionPartController actionPartController = null;
+
         [SerializeField]
         private GameObject player = null;
         Player playerCS;
 
         [SerializeField]
-        private Vector2 offset = new(-10f, 0f);
+        private Vector2 offset = new(15f, 0f);
+
+        [SerializeField]
+        private Vector2[] arePositions = null;
 
         private Animator animator;
-        private new Transform transform;
 
         private void Start()
         {
             playerCS = player.GetComponent<Player>();
             animator = GetComponent<Animator>();
-            transform = GetComponent<Transform>();
-        }
-
-        private void Update()
-        {
-            if (player.transform.position.x + offset.x > transform.position.x)
-            {
-                TargetChase();
-            }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -38,11 +34,10 @@ namespace Syoujyo_no_Yume
             }
         }
 
-        // 一定間隔以上離れるとプレイヤーについていきます。
-        private void TargetChase()
+        public void NextAreaPosi()
         {
             var position = transform.position;
-            position.x = player.transform.position.x + offset.x;
+            position = arePositions[actionPartController.KeyItemCount];
             transform.position = position;
         }
 
