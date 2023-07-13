@@ -1,0 +1,653 @@
+fileFormatVersion: 2
+guid: aafb4a5afe5a77844a1fcad4a16dcaed
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: head
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 552
+        width: 98
+        height: 97
+      alignment: 9
+      pivot: {x: 0.5102041, y: 0.12371134}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c032e3c67ee56e0800000000000000
+      internalID: -1846784345090356148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 502
+        width: 59
+        height: 38
+      alignment: 9
+      pivot: {x: 0.62711865, y: 0.31578946}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 617890c7dac0b6d70800000000000000
+      internalID: 9037331016498906902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kuchi
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 434
+        width: 13
+        height: 11
+      alignment: 9
+      pivot: {x: 0.53846157, y: 0.45454547}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efcf4aa3ab6d92520800000000000000
+      internalID: 2677907548784622846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: maegami
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 474
+        width: 48
+        height: 70
+      alignment: 9
+      pivot: {x: 0.39583334, y: 0.74285716}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 451236d6f98ee6f80800000000000000
+      internalID: -8111290107415027372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mayuge
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 347
+        width: 49
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2656d4a645f35a680800000000000000
+      internalID: -8744513469676690078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hilight
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 216
+        width: 81
+        height: 38
+      alignment: 9
+      pivot: {x: 0.67901236, y: 0.42105263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b194ebf09874cb20800000000000000
+      internalID: 3153778203162874292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: migigami
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 302
+        width: 60
+        height: 121
+      alignment: 9
+      pivot: {x: 0.71666664, y: 0.8512397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eaf1b404a9de0fe0800000000000000
+      internalID: -1220799150494188831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uegami
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 298
+        width: 70
+        height: 98
+      alignment: 9
+      pivot: {x: 0.34285715, y: 0.79591835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608b9002facde1f70800000000000000
+      internalID: 9160001336833062918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hidarigami
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 543
+        width: 61
+        height: 113
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44750981431805910800000000000000
+      internalID: 1824099909835446084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ushirogami
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 606
+        width: 75
+        height: 53
+      alignment: 9
+      pivot: {x: 0.58666664, y: 0.6792453}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e309d58d28425b710800000000000000
+      internalID: 1708311778051330110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kubi
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 575
+        width: 20
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31578946}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6be6c1c8baef6e010800000000000000
+      internalID: 1217940761993834166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: karada
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 464
+        width: 69
+        height: 100
+      alignment: 9
+      pivot: {x: 0.44927537, y: 0.27}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0123d8d3b4a370f50800000000000000
+      internalID: 6847505853269750288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sukart
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 591
+        width: 87
+        height: 52
+      alignment: 9
+      pivot: {x: 0.55172414, y: 0.78846157}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 696af1639025e6880800000000000000
+      internalID: -8615858837596952938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: migikata
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 556
+        width: 47
+        height: 102
+      alignment: 9
+      pivot: {x: 0.7234042, y: 0.74509805}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f6caf97f90030b80800000000000000
+      internalID: -8429893392561158415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: migiude
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 442
+        width: 61
+        height: 97
+      alignment: 9
+      pivot: {x: 0.55737704, y: 0.7938144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 032744d7810021420800000000000000
+      internalID: 2599140040127050288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hidarikata
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 566
+        width: 38
+        height: 80
+      alignment: 9
+      pivot: {x: 0.47368422, y: 0.7}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15ba7f9bab70d3930800000000000000
+      internalID: 4124461332306570065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hidariude
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 473
+        width: 47
+        height: 80
+      alignment: 9
+      pivot: {x: 0.44680852, y: 0.7875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 109644f19c45bb9a0800000000000000
+      internalID: -6216281637865101055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: migimomo
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 195
+        width: 55
+        height: 85
+      alignment: 9
+      pivot: {x: 0.6181818, y: 0.7294118}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a4482de0c5c0a90800000000000000
+      internalID: -7346395673416938912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: migisune
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 81
+        width: 52
+        height: 101
+      alignment: 9
+      pivot: {x: 0.53846157, y: 0.8019802}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28b2cb6934e04b590800000000000000
+      internalID: -7659481382795859070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hidarimomo
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 183
+        width: 51
+        height: 79
+      alignment: 9
+      pivot: {x: 0.4509804, y: 0.7721519}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddcacc76807383e70800000000000000
+      internalID: 9095079956715449565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hidarisune
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 80
+        width: 53
+        height: 86
+      alignment: 9
+      pivot: {x: 0.3773585, y: 0.8488372}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08263ade9986b2220800000000000000
+      internalID: 2462176631614300800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: migituinnte
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 297
+        width: 54
+        height: 246
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.9308943}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fe29e0f1debda230800000000000000
+      internalID: 3651784681766596338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hidarituinnte
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 300
+        width: 53
+        height: 242
+      alignment: 9
+      pivot: {x: 0.4528302, y: 0.92561984}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dca27de1779805a0800000000000000
+      internalID: -6554822742066942763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      hilight: 3153778203162874292
+      migigami: -1220799150494188831
+      maegami: -8111290107415027372
+      migikata: -8429893392561158415
+      hidarikata: 4124461332306570065
+      ushirogami: 1708311778051330110
+      migisune: -7659481382795859070
+      hidarimomo: 9095079956715449565
+      hidarituinnte: -6554822742066942763
+      kuchi: 2677907548784622846
+      migimomo: -7346395673416938912
+      mayuge: -8744513469676690078
+      kubi: 1217940761993834166
+      sukart: -8615858837596952938
+      head: -1846784345090356148
+      migiude: 2599140040127050288
+      eye: 9037331016498906902
+      hidarisune: 2462176631614300800
+      uegami: 9160001336833062918
+      hidarigami: 1824099909835446084
+      migituinnte: 3651784681766596338
+      karada: 6847505853269750288
+      hidariude: -6216281637865101055
+  spritePackingTag: SpriteStudio
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

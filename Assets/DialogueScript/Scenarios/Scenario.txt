@@ -1,0 +1,17 @@
+<Message> ここのテキストが表示されます。
+
+<CharacterMode>あゆむ_喜び<Message>１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０
+
+<CharacterMode>あゆむ_驚き
+<Message>命令と設定の間に空白を挟まなくても問題ありません。
+
+<CharacterMode>あゆむ_影
+<CharacterMode>あゆむ_驚き
+<Message>
+CharacterModeの設定はキャラクター名の省略が可能です。
+省略した場合Nameで設定されたキャラクターのモード設定となります。
+
+<CharacterMode>あゆむ＿喜び
+<Message>見ていただきありがとうございます。自由に設定していただけるとうれしいです。
+
+<Inactive> 1
