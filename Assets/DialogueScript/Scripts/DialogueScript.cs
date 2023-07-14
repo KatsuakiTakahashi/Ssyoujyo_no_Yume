@@ -15,10 +15,10 @@ namespace DialogueScript
         private static readonly string scenarioFileName = "Scenario.txt";
 
         // シナリオファイルからデータを取り出します
-        private static readonly ScenarioFile scenarioFile = new (scenarioFileName);
+        private static readonly ScenarioFile scenarioFile = new(scenarioFileName);
 
         // シナリオファイルのデータからコマンドリストを作成します
-        private readonly CommandList commandList = new (scenarioFile.scenario, scenarioFile.ScenarioFormat);
+        private readonly CommandList commandList = new(scenarioFile.scenario, scenarioFile.ScenarioFormat);
         private Func<string, Task> commandMethod = null;
 
         // 現在の命令番号
@@ -32,6 +32,7 @@ namespace DialogueScript
         // メッセージを最後まで表示してから次のメッセージを表示するモード
         [SerializeField]
         private bool displayMessagesToTheEnd = true;
+
         private enum DialogueState
         {
             Debug,
@@ -52,11 +53,18 @@ namespace DialogueScript
             [SerializeField]
             public int autoSpeed;
         }
+        // それぞれのメッセージ速度を設定してください。
         [SerializeField]
         private MessageSpeed messageSpeed;
+
+        // 一つのメッセージの終了判定です
         private bool isMessageEnd = false;
+        // メッセージが終了したときに表示されるアイコンです。
+        [SerializeField]
+        private GameObject messageEndIcon = null;
         private CancellationTokenSource messageCancellationSource;
 
+        [SerializeField]
         private GameObject dialogueGameObject = null;
         // メッセージの表示先を指定してください
         [SerializeField]
@@ -68,18 +76,35 @@ namespace DialogueScript
 
         // 命令を追加したい場合はここで設定を行ってください。
         [SerializeField]
-        private List<UserCommand> userCommands = new ();
+        private List<UserCommand> userCommands = new();
+
+        // 渡された名前の関数のデリゲート型を作成します。
+        public static Func<string, Task> CreateCommand(string commandType)
+        {
+            MethodInfo methodInfo = typeof(DialogueScript).GetMethod(commandType);
+
+            if (methodInfo == null)
+            {
+                return null;
+            }
+
+            return (Func<string, Task>)Delegate.CreateDelegate(typeof(Func<string, Task>), null, methodInfo);
+        }
 
         private void Awake()
         {
-            dialogueGameObject = gameObject;
             characters = FindObjectsOfType<Character>();
 
-            Debug.Log("シナリオ : \n" + scenarioFile.scenario);
+            if (messageEndIcon != null && messageEndIcon.activeSelf)
+            {
+                messageEndIcon.SetActive(false);
+            }
         }
 
         private void Start()
         {
+            Debug.Log("シナリオ : \n" + scenarioFile.scenario);
+
             if (isDebugMode)
             {
                 currentDialogueState = DialogueState.Debug;
@@ -95,16 +120,7 @@ namespace DialogueScript
             UpdateDialogue();
         }
 
-        private void OnDisable()
-        {
-            // タスクのキャンセルを行います
-            if (messageCancellationSource != null)
-            {
-                messageCancellationSource.Cancel();
-                messageCancellationSource = null;
-            }
-        }
-
+        // 実行中の処理を行います
         private void UpdateDialogue()
         {
             if (isEnd)
@@ -119,72 +135,67 @@ namespace DialogueScript
                     break;
 
                 case DialogueState.Skip:
-                    if (Input.GetButtonUp("Fire1"))
-                    {
-                        currentDialogueState = DialogueState.Normal;
-                    }
-                    else
-                    {
-                        if (isMessageEnd)
-                        {
-                            NextCommand();
-                        }
-                    }
+                    UpdateSkipState();
                     break;
 
                 case DialogueState.Auto:
-                    if (Input.GetButtonUp("Fire2"))
-                    {
-                        currentDialogueState = DialogueState.Normal;
-                    }
-                    else
-                    {
-                        if (isMessageEnd)
-                        {
-                            NextCommand();
-                        }
-                    }
+                    UpdateAutoState();
                     break;
 
                 case DialogueState.Normal:
-                    if (Input.GetButtonDown("Fire1"))
-                    {
-                        currentDialogueState = DialogueState.Skip;
-                        if (isMessageEnd)
-                        {
-                            NextCommand();
-                        }
-                    }
-                    if (Input.GetButtonDown("Fire2"))
-                    {
-                        currentDialogueState = DialogueState.Auto;
-                        if (isMessageEnd)
-                        {
-                            NextCommand();
-                        }
-                    }
-                    else if (Input.GetButtonDown("Submit"))
-                    {
-                        if (isMessageEnd && displayMessagesToTheEnd)
-                        {
-                            NextCommand();
-                        }
-                    }
+                    UpdateNormalState();
                     break;
             }
         }
 
-        // 渡された名前の関数のデリゲート型を作成します。
-        public static Func<string, Task> CreateCommand(string commandType)
+        private void UpdateSkipState()
         {
-            MethodInfo methodInfo = typeof(DialogueScript).GetMethod(commandType);
-
-            if (methodInfo == null)
+            if (Input.GetButtonUp("Fire1"))
             {
-                return null;
+                currentDialogueState = DialogueState.Normal;
             }
+            else
+            {
+                if (isMessageEnd)
+                {
+                    NextCommand();
+                }
+            }
+        }
 
-            return (Func<string, Task>)Delegate.CreateDelegate(typeof(Func<string, Task>), null, methodInfo);
+        private void UpdateAutoState()
+        {
+            if (Input.GetButtonUp("Fire2"))
+            {
+                currentDialogueState = DialogueState.Normal;
+            }
+            else
+            {
+                if (isMessageEnd)
+                {
+                    NextCommand();
+                }
+            }
+        }
+
+        private void UpdateNormalState()
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                currentDialogueState = DialogueState.Skip;
+                NextCommand();
+            }
+            if (Input.GetButtonDown("Fire2"))
+            {
+                currentDialogueState = DialogueState.Auto;
+            }
+            else if (Input.GetButtonDown("Submit"))
+            {
+                if (isMessageEnd)
+                {
+                    NextCommand();
+                }
+            }
         }
 
         // 次の命令を実行します。
@@ -215,17 +226,53 @@ namespace DialogueScript
             {
                 isEnd = true;
             }
-
             return;
         }
 
-        // Dialogueスクリプトを非アクティブにします。
-        public Task Inactive(string none)
+        private void OnDisable()
         {
-            dialogueGameObject.SetActive(false);
+            TaskCancell();
+        }
+
+        // Dialogueスクリプトのアクティブ状態を設定します。
+        public Task SetActive(string boolText)
+        {
+            if (boolText == "true" || boolText == "True")
+            {
+                dialogueGameObject.SetActive(true);
+                enabled = true;
+                NextCommand();
+            }
+            else if (boolText == "false" || boolText == "False")
+            {
+                dialogueGameObject.SetActive(false);
+                TaskCancell();
+                enabled = false;
+            }
+            else
+            {
+                throw new Exception("<SetActive>に続くテキストは true もしくは false を設定してください。");
+            }
 
             return Task.CompletedTask;
         }
+
+        private void TaskCancell()
+        {
+            // タスクのキャンセルを行います
+            if (messageCancellationSource != null)
+            {
+                messageCancellationSource.Cancel();
+                messageCancellationSource = null;
+            }
+
+            if (currentDialogueState != DialogueState.Debug)
+            {
+                currentDialogueState = DialogueState.Normal;
+            }
+        }
+
+        //////////////////////////////以下ダイアログのためのコマンド//////////////////////////////
 
         // テキストボックスに文字を表示します
         public async Task Message(string messageText)
@@ -235,7 +282,7 @@ namespace DialogueScript
                 throw new ArgumentNullException("メッセージの表示先を設定してください");
             }
 
-            isMessageEnd = false;
+            SetMessageEnd(false);
 
             // もし前回のメッセージ表示がまだ終わっていない場合、キャンセルして待機を中断します
             messageCancellationSource?.Cancel();
@@ -264,7 +311,7 @@ namespace DialogueScript
                         messageTextBox.text += messageText[messageTextIndex];
                     }
 
-                    isMessageEnd = true;
+                    SetMessageEnd(true);
                     break;
 
                 case DialogueState.Auto:
@@ -292,7 +339,7 @@ namespace DialogueScript
                             return;
                         }
 
-                        isMessageEnd = true;
+                        SetMessageEnd(true);
                     }
                     else
                     {
@@ -305,7 +352,7 @@ namespace DialogueScript
                             return;
                         }
 
-                        isMessageEnd = true;
+                        SetMessageEnd(true);
                     }
                     break;
 
@@ -327,15 +374,24 @@ namespace DialogueScript
                             messageTextBox.text += messageText[messageTextIndex];
                         }
 
-                        isMessageEnd=true;
+                        SetMessageEnd(true);
                     }
                     else
                     {
                         messageTextBox.text = messageText;
 
-                        isMessageEnd = true;
+                        SetMessageEnd(true);
                     }
                     break;
+            }
+        }
+
+        private void SetMessageEnd(bool setBool)
+        {
+            isMessageEnd = setBool;
+            if (messageEndIcon != null)
+            {
+                messageEndIcon.SetActive(setBool);
             }
         }
 

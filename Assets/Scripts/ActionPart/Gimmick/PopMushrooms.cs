@@ -14,11 +14,13 @@ namespace Syoujyo_no_Yume
         float repellentForce = 1f;
 
         private Animator animator;
+        private AudioSource audioSource;
 
         private void Start()
         {
             playerRb = player.GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -27,6 +29,7 @@ namespace Syoujyo_no_Yume
             if (collision.gameObject == player)
             {
                 animator.SetTrigger("Active");
+                audioSource.Play();
 
                 // 衝突した相手の法線ベクトルを取得
                 Vector2 contactNormal = -collision.contacts[0].normal;

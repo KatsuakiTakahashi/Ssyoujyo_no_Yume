@@ -5,8 +5,10 @@ namespace Syoujyo_no_Yume
     public class ActionPartController : MonoBehaviour
     {
         [SerializeField]
-        PartController partController = null;
+        DialogueScript.DialogueScript dialogue = null;
 
+        [SerializeField]
+        private Player player = null;
         [SerializeField]
         FrontProhibitedArea frontProhibitedArea = null;
 
@@ -16,7 +18,8 @@ namespace Syoujyo_no_Yume
         {
             frontProhibitedArea.NextAreaPosi();
             KeyItemCount++;
-            partController.OnAdventurePart();
+            player.Inactive();
+            dialogue.SetActive("true");
         }
     }
 }

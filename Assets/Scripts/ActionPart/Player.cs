@@ -31,7 +31,7 @@ namespace Syoujyo_no_Yume
         [SerializeField]
         private Transform groundChecker = null;
 
-        private new Rigidbody2D rigidbody;
+        new Rigidbody2D rigidbody;
 
         private Animator animator;
         // AnimatorのパラメーターID
