@@ -11,7 +11,7 @@ namespace Syoujyo_no_Yume
         [SerializeField]
         private int numberOTiles = 0;
 
-        private void Awake()
+        private void Start()
         {
             GenerateTiles();
         }

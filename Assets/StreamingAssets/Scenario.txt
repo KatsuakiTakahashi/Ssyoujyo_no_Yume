@@ -1,4 +1,3 @@
-<NameTextBox>false
 <UserCommand>テキストボックス_通常
 
 <Message>ここは……どこだ。

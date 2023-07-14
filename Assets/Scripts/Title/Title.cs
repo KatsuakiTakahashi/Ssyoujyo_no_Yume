@@ -15,7 +15,7 @@ namespace Syoujyo_no_Yume
         private Animator animator;
         private string onButtonType = "";
 
-        private void Start()
+        private void Awake()
         {
             animator = GetComponent<Animator>();
         }

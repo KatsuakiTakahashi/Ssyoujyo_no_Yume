@@ -233,7 +233,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -450,6 +452,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4615800515968472989
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8622047201101068447
 RectTransform:
   m_ObjectHideFlags: 0
@@ -738,7 +741,7 @@ Transform:
   - {fileID: 5860036936914085085}
   - {fileID: 3445090442417583753}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5771812922439020843
 Animator:
@@ -760,6 +763,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &191859265481848004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,7 +783,9 @@ MonoBehaviour:
     autoSpeed: 1500
   dialogueGameObject: {fileID: 3928070325815666110}
   messageTextBox: {fileID: 5011809719808907210}
+  messageTextArea: {fileID: 1104803699236579534}
   nameTextBox: {fileID: 4615800515968472989}
+  nameTextArea: {fileID: 1656411129604372345}
   messageEndIcon: {fileID: 4564023305483442146}
   userCommands:
   - commandName: PlayerActive
@@ -1018,6 +1024,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3606801099718496858}
     m_Modifications:
     - target: {fileID: 1748287915923521098, guid: b22d22fe0e034de4fa3c6bc356664a64, type: 3}
@@ -1173,6 +1180,9 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b22d22fe0e034de4fa3c6bc356664a64, type: 3}
 --- !u!224 &97862494755564463 stripped
 RectTransform:

@@ -40,7 +40,7 @@ namespace Syoujyo_no_Yume
         static readonly int jumpId = Animator.StringToHash("Jump");
         static readonly int LandingId = Animator.StringToHash("Landing");
 
-        private void Start()
+        private void Awake()
         {
             animator = GetComponentInChildren<Animator>();
             rigidbody = GetComponent<Rigidbody2D>();

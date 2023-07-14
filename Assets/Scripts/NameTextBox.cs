@@ -10,9 +10,10 @@ namespace Syoujyo_no_Yume
         [SerializeField]
         private Sprite[] textBoxSprites = null;
 
-        private void Start()
+        private void Awake()
         {
             textBoxImage = GetComponent<Image>();
+            gameObject.SetActive(false);
         }
 
         public void SetSprite(int spriteIndex)
