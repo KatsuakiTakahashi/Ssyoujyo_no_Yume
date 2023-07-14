@@ -1,20 +1,99 @@
-<Message> 11111111111111111111111111111111111111111111111111111111111111111111
+<NameTextBox>false
+<UserCommand>テキストボックス_通常
+
+<Message>ここは……どこだ。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>？？？
+<CharacterMode>あゆむ_笑う
+<Message>「あ、起きた。おはようございます！
+　わたしはあゆむ。
+　あなたを夢に捕らえました。」
+
+<NameTextBox>false 
+<CharacterMode>あゆむ_通常
+<Message>見知らぬ地に、見知らぬ少女。
+これは誘拐か！？　声を出そうにも
+口をパクパクするだけだった。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_真顔
+<Message>「あなたから声を奪ったのもわたしです。
+　わたしを否定・非難・怒ることはできない……」
+
+<NameTextBox>false 
+<CharacterMode>あゆむ_通常
+<Message>この少女は少し……いや
+かなりおかしい。
+
+<Message>一か八かでポケットに手を突っ込む。
+目的のものは簡単に見つかった。
+スマートフォンだ。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_笑う
+<Message>「誰に連絡しようとしてるんですか。
+　ここはわたしの夢の世界。
+　あなたが自由にできるはずがない。」
+
+<NameTextBox>false 
+<CharacterMode>あゆむ_真顔
+<Message>軽快な音と共に
+手にもったスマートフォンが消えた。
+……消えた？
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_笑う
+<Message>「この夢の世界はわたしの世界ですから。
+　ふふふ、わたしの自由にできるんです。」
 
 <CharacterMode>あゆむ_喜び
-<Message> 222222222222222222222222222222222222222222222222222222222222222222
+<Message>「“あなた”だと他人行儀すぎますね。
+　うーん……。“ご主人”とかどうでしょうか？」
 
-<CharacterMode>あゆむ_驚き
-<Message> 3333333333333333333333333333333333333333333333333333333333333333
+<NameTextBox>false 
+<Message>……。
 
-<UserCommand>PlayerActive
-<SetActive>false
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「だってあなたは将来の旦那様ですから！」
 
-<CharacterMode>あゆむ_影
-<CharacterMode>あゆむ_驚き
-<Message> 444444444444444444444444444444444444444444444444444444444444444444
+<NameTextBox>false 
+<CharacterMode>あゆむ_笑う
+<Message>……。
 
-<CharacterMode>あゆむ＿喜び
-<Message> 555555555555555555555555555555555555555555555555555555555555555
+<Message>…………。
+
+<Message>は？
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「ご主人～？　
+　ぼーっと立ってないで
+　少しこの世界を歩いてみませんか？」
+
+<CharacterMode>あゆむ_喜び
+<Message>「面白いものとか、あるかもしれないし……
+　ここを真っ直ぐ行ったところに、何か見えませんか？
+　気になるし……行きましょ！」
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_真顔
+<Message>「ここは、わたしの理想が詰まった
+　夢の世界なんですから……
+　わたしのお母さんだっているはず……」
+
+<Message>「待っててね、今迎えに行くから……」
 
 <UserCommand>PlayerActive
 <SetActive>false

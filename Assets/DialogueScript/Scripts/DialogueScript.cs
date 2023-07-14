@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace DialogueScript
 {
@@ -29,13 +30,11 @@ namespace DialogueScript
         // シナリオが正しく動作するか確認出来ます。
         [SerializeField]
         private bool isDebugMode = false;
-        // メッセージを最後まで表示してから次のメッセージを表示するモード
-        [SerializeField]
-        private bool displayMessagesToTheEnd = true;
 
         private enum DialogueState
         {
             Debug,
+            Hide,
             Skip,
             Auto,
             Normal,
@@ -59,19 +58,24 @@ namespace DialogueScript
 
         // 一つのメッセージの終了判定です
         private bool isMessageEnd = false;
-        // メッセージが終了したときに表示されるアイコンです。
-        [SerializeField]
-        private GameObject messageEndIcon = null;
         private CancellationTokenSource messageCancellationSource;
 
         [SerializeField]
         private GameObject dialogueGameObject = null;
         // メッセージの表示先を指定してください
         [SerializeField]
-        private TextMeshProUGUI messageTextBox = null;
+        private GameObject messageTextBox = null;
+        private TextMeshProUGUI messageTextArea = null;
+
         // 発言者の名前の表示先を指定してください
         [SerializeField]
-        private TextMeshProUGUI nameTextBox = null;
+        private GameObject nameTextBox = null;
+        private TextMeshProUGUI nameTextArea = null;
+
+        // メッセージが終了したときに表示されるアイコンです。
+        [SerializeField]
+        private GameObject messageEndIcon = null;
+
         private Character[] characters = null;
 
         // 命令を追加したい場合はここで設定を行ってください。
@@ -93,6 +97,9 @@ namespace DialogueScript
 
         private void Awake()
         {
+            messageTextArea = messageTextBox.GetComponentInChildren<TextMeshProUGUI>();
+            nameTextArea = nameTextBox.GetComponentInChildren<TextMeshProUGUI>();
+
             characters = FindObjectsOfType<Character>();
 
             if (messageEndIcon != null && messageEndIcon.activeSelf)
@@ -134,6 +141,10 @@ namespace DialogueScript
                     NextCommand();
                     break;
 
+                case DialogueState.Hide:
+                    UpdateHideState();
+                    break;
+
                 case DialogueState.Skip:
                     UpdateSkipState();
                     break;
@@ -145,6 +156,16 @@ namespace DialogueScript
                 case DialogueState.Normal:
                     UpdateNormalState();
                     break;
+            }
+        }
+
+        private void UpdateHideState()
+        {
+            if (Input.anyKeyDown)
+            {
+                nameTextBox.SetActive(true);
+                messageTextBox.SetActive(true);
+                currentDialogueState = DialogueState.Normal;
             }
         }
 
@@ -180,12 +201,18 @@ namespace DialogueScript
 
         private void UpdateNormalState()
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Cancel"))
+            {
+                nameTextBox.SetActive(false);
+                messageTextBox.SetActive(false);
+                currentDialogueState = DialogueState.Hide;
+            }
+            else if (Input.GetButtonDown("Fire1"))
             {
                 currentDialogueState = DialogueState.Skip;
                 NextCommand();
             }
-            if (Input.GetButtonDown("Fire2"))
+            else if (Input.GetButtonDown("Fire2"))
             {
                 currentDialogueState = DialogueState.Auto;
             }
@@ -297,7 +324,7 @@ namespace DialogueScript
 
                 case DialogueState.Skip:
                     // テキストボックスを空にします
-                    messageTextBox.text = "";
+                    messageTextArea.text = "";
 
                     for (int messageTextIndex = 0; messageTextIndex < messageText.Length; messageTextIndex++)
                     {
@@ -308,7 +335,7 @@ namespace DialogueScript
                             return;
                         }
 
-                        messageTextBox.text += messageText[messageTextIndex];
+                        messageTextArea.text += messageText[messageTextIndex];
                     }
 
                     SetMessageEnd(true);
@@ -318,7 +345,7 @@ namespace DialogueScript
                     if (messageSpeed.messageInterval != 0)
                     {
                         // テキストボックスを空にします
-                        messageTextBox.text = "";
+                        messageTextArea.text = "";
 
                         for (int messageTextIndex = 0; messageTextIndex < messageText.Length; messageTextIndex++)
                         {
@@ -329,7 +356,7 @@ namespace DialogueScript
                                 return;
                             }
 
-                            messageTextBox.text += messageText[messageTextIndex];
+                            messageTextArea.text += messageText[messageTextIndex];
                         }
 
                         await Task.Delay(messageSpeed.autoSpeed);
@@ -343,7 +370,7 @@ namespace DialogueScript
                     }
                     else
                     {
-                        messageTextBox.text = messageText;
+                        messageTextArea.text = messageText;
 
                         await Task.Delay(messageSpeed.autoSpeed);
                         // キャンセル要求が発生した場合はタスクを終了します
@@ -360,7 +387,7 @@ namespace DialogueScript
                     if (messageSpeed.messageInterval != 0)
                     {
                         // テキストボックスを空にします
-                        messageTextBox.text = "";
+                        messageTextArea.text = "";
 
                         for (int messageTextIndex = 0; messageTextIndex < messageText.Length; messageTextIndex++)
                         {
@@ -371,14 +398,14 @@ namespace DialogueScript
                                 return;
                             }
 
-                            messageTextBox.text += messageText[messageTextIndex];
+                            messageTextArea.text += messageText[messageTextIndex];
                         }
 
                         SetMessageEnd(true);
                     }
                     else
                     {
-                        messageTextBox.text = messageText;
+                        messageTextArea.text = messageText;
 
                         SetMessageEnd(true);
                     }
@@ -389,7 +416,7 @@ namespace DialogueScript
         private void SetMessageEnd(bool setBool)
         {
             isMessageEnd = setBool;
-            if (messageEndIcon != null)
+            if (messageEndIcon != null && currentDialogueState != DialogueState.Hide)
             {
                 messageEndIcon.SetActive(setBool);
             }
@@ -451,7 +478,28 @@ namespace DialogueScript
                 throw new ArgumentNullException("発言者の名前の表示先を設定してください");
             }
 
-            nameTextBox.text = nameText;
+            nameTextArea.text = nameText;
+
+            NextCommand();
+
+            return Task.CompletedTask;
+        }
+
+        // メッセージテキストボックスの表示非表示を設定します。
+        public Task MessageTextBox(string boolText)
+        {
+            if (boolText == "true" || boolText == "True")
+            {
+                messageTextBox.SetActive(true);
+            }
+            else if (boolText == "false" || boolText == "False")
+            {
+                messageTextBox.SetActive(false);
+            }
+            else
+            {
+                throw new Exception("<MessageTextBox>に続くテキストは true もしくは false を設定してください。");
+            }
 
             NextCommand();
 
@@ -467,8 +515,29 @@ namespace DialogueScript
                 throw new Exception("メッセージフォントサイズの設定値に数字ではないものが渡されました。 : " + fontSizeText);
             }
 
-            messageTextBox.fontSize = value;
+            messageTextArea.fontSize = value;
             NextCommand();
+            return Task.CompletedTask;
+        }
+
+        // ネームテキストボックスの表示非表示を設定します。
+        public Task NameTextBox(string boolText)
+        {
+            if (boolText == "true" || boolText == "True")
+            {
+                nameTextBox.SetActive(true);
+            }
+            else if (boolText == "false" || boolText == "False")
+            {
+                nameTextBox.SetActive(false);
+            }
+            else
+            {
+                throw new Exception("<MessageTextBox>に続くテキストは true もしくは false を設定してください。");
+            }
+
+            NextCommand();
+
             return Task.CompletedTask;
         }
 
@@ -481,7 +550,7 @@ namespace DialogueScript
                 throw new Exception("メッセージフォントサイズの設定値に数字ではないものが渡されました。 : " + fontSizeText);
             }
 
-            nameTextBox.fontSize = value;
+            nameTextArea.fontSize = value;
             NextCommand();
             return Task.CompletedTask;
         }
@@ -513,7 +582,7 @@ namespace DialogueScript
 
             if (characterName == "")
             {
-                characterName = nameTextBox.text;
+                characterName = nameTextArea.text;
             }
 
             for (int characterIndex = 0; characterIndex < characters.Length; characterIndex++)
