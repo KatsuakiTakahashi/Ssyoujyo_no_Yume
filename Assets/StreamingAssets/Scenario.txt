@@ -2,7 +2,6 @@
 
 <Message>ここは……どこだ。
 
-<NameTextBox>true 
 <UserCommand>ネームボックス_あゆむ
 <Name>？？？
 <CharacterMode>あゆむ_笑う
@@ -16,7 +15,6 @@
 これは誘拐か！？　声を出そうにも
 口をパクパクするだけだった。
 
-<NameTextBox>true 
 <UserCommand>ネームボックス_あゆむ
 <Name>あゆむ
 <CharacterMode>あゆむ_真顔
@@ -32,7 +30,6 @@
 目的のものは簡単に見つかった。
 スマートフォンだ。
 
-<NameTextBox>true 
 <UserCommand>ネームボックス_あゆむ
 <Name>あゆむ
 <CharacterMode>あゆむ_笑う
@@ -59,7 +56,6 @@
 <NameTextBox>false 
 <Message>……。
 
-<NameTextBox>true 
 <UserCommand>ネームボックス_あゆむ
 <Name>あゆむ
 <Message>「だってあなたは将来の旦那様ですから！」
@@ -72,7 +68,6 @@
 
 <Message>は？
 
-<NameTextBox>true 
 <UserCommand>ネームボックス_あゆむ
 <Name>あゆむ
 <Message>「ご主人～？　
@@ -84,7 +79,6 @@
 　ここを真っ直ぐ行ったところに、何か見えませんか？
 　気になるし……行きましょ！」
 
-<NameTextBox>true 
 <UserCommand>ネームボックス_あゆむ
 <Name>あゆむ
 <CharacterMode>あゆむ_真顔
@@ -94,5 +88,4 @@
 
 <Message>「待っててね、今迎えに行くから……」
 
-<UserCommand>PlayerActive
-<SetActive>false
+<UserCommand>ActionPart

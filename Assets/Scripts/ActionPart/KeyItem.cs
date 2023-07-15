@@ -9,7 +9,7 @@ namespace Syoujyo_no_Yume
         Player playerCs;
 
         [SerializeField]
-        private ActionPartController actionPartController = null;
+        private GameController gameController = null;
 
         Animator animator;
 
@@ -31,7 +31,7 @@ namespace Syoujyo_no_Yume
         public void GetItem()
         {
             gameObject.SetActive(false);
-            actionPartController.GetKeyItem();
+            gameController.GetKeyItem();
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Syoujyo_no_Yume
     public class FrontProhibitedArea : MonoBehaviour
     {
         [SerializeField]
-        private ActionPartController actionPartController = null;
+        private GameController gameController = null;
 
         [SerializeField]
         private GameObject player = null;
@@ -36,8 +36,7 @@ namespace Syoujyo_no_Yume
 
         public void NextAreaPosi()
         {
-            var position = transform.position;
-            position = arePositions[actionPartController.KeyItemCount];
+            var position = arePositions[gameController.KeyItemCount];
             transform.position = position;
         }
 
