@@ -2411,7 +2411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3f5f8a8f41df1418584e497ff04fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
+  gameController: {fileID: 1729760164}
   player: {fileID: 1854943408}
   offset: {x: 15, y: 0}
   arePositions:
@@ -6169,6 +6169,14 @@ PrefabInstance:
       propertyPath: m_characterSpacing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1656411129604372345, guid: 551af0f74449c5d419be817faa11ff43, type: 3}
+      propertyPath: m_fontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1656411129604372345, guid: 551af0f74449c5d419be817faa11ff43, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 4615800515968472989, guid: 551af0f74449c5d419be817faa11ff43, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -6179,19 +6187,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8622047201101068447, guid: 551af0f74449c5d419be817faa11ff43, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 713
+      value: 475
       objectReference: {fileID: 0}
     - target: {fileID: 8622047201101068447, guid: 551af0f74449c5d419be817faa11ff43, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 162
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 8622047201101068447, guid: 551af0f74449c5d419be817faa11ff43, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -550
+      value: -500
       objectReference: {fileID: 0}
     - target: {fileID: 8622047201101068447, guid: 551af0f74449c5d419be817faa11ff43, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -165
+      value: -175
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6284,6 +6292,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1854943408}
+    - target: {fileID: 368193414877577299, guid: 2bb0db121ca04dd459be5b743786d8c5, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1729760164}
     - target: {fileID: 368193414877577299, guid: 2bb0db121ca04dd459be5b743786d8c5, type: 3}
       propertyPath: actionPartController
       value: 
