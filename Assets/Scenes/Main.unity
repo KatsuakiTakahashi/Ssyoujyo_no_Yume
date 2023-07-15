@@ -5500,6 +5500,14 @@ PrefabInstance:
       propertyPath: userCommands.Array.data[0].commandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Active
       objectReference: {fileID: 0}
+    - target: {fileID: 1104803699236579534, guid: 551af0f74449c5d419be817faa11ff43, type: 3}
+      propertyPath: m_lineSpacing
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104803699236579534, guid: 551af0f74449c5d419be817faa11ff43, type: 3}
+      propertyPath: m_characterSpacing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4615800515968472989, guid: 551af0f74449c5d419be817faa11ff43, type: 3}
       propertyPath: m_IsActive
       value: 1

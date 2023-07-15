@@ -37,7 +37,7 @@ namespace DialogueScript
                     // シナリオの最後まで判別
                     for (int scenarioIndex = 0; scenarioIndex < scenario.Length; scenarioIndex++)
                     {
-                        // 先頭の','を回避します
+                        // 先頭の'<'を回避します
                         if (scenarioIndex == 0 && scenario[scenarioIndex] == '<')
                         {
                             scenarioIndex++;
@@ -46,18 +46,34 @@ namespace DialogueScript
                         // 命令中ではないときに'<'が来たら命令かどうか判別開始
                         if (scenario[scenarioIndex] == '<' && isCommandType != true)
                         {
-                            if (!(scenarioIndex == scenario.Length - 1))
+                            if (scenarioIndex != scenario.Length - 1)
                             {
                                 scenarioIndex++;
                             }
 
-                            // 連続して'<'が続いていた場合命令ではないと判定
+                            // 連続して'<'が続いていた場合除外
                             if (scenario[scenarioIndex] != '<')
                             {
-                                isCommandType = true;
+                                // TextMeshProを使用した命令だったら除外
+                                if (char.IsLower(scenario[scenarioIndex]) || scenario[scenarioIndex] == '/')
+                                {
+                                    currentCommandArgument += '<';
+                                    while (scenario[scenarioIndex] != '>')
+                                    {
+                                        currentCommandArgument += scenario[scenarioIndex];
+                                        scenarioIndex++;
+                                    }
+                                    currentCommandArgument += scenario[scenarioIndex];
+                                    scenarioIndex++;
+                                }
+                                // そうでない場合命令の型として判別
+                                else
+                                {
+                                    isCommandType = true;
 
-                                // 命令を設定し命令と命令の引数を初期化
-                                CommandSet();
+                                    // 命令を設定し命令と命令の引数を初期化
+                                    CommandSet();
+                                }
                             }
                         }
                         // 命令中だったときに'>'が来たら命令終了と判定
@@ -171,7 +187,7 @@ namespace DialogueScript
                         }
 
                         // シナリオの最後まで到達したら命令を設定
-                        if (scenarioIndex == scenario.Length - 1)
+                        if (scenarioIndex >= scenario.Length - 1)
                         {
                             // 命令を設定し命令と命令の引数を初期化
                             CommandSet();

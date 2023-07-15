@@ -309,6 +309,30 @@ namespace DialogueScript
             }
 
             SetMessageEnd(false);
+            await MessageOutput(currentDialogueState, messageText);
+            SetMessageEnd(true);
+        }
+
+        private async Task MessageOutput(DialogueState currentDialogueState, string messageText)
+        {
+            // テキストボックスを空にします
+            messageTextArea.text = "";
+            int currentMessageSpeed = 0;
+
+            switch (currentDialogueState)
+            {
+                case DialogueState.Debug:
+                    break;
+                case DialogueState.Skip:
+                    currentMessageSpeed = messageSpeed.skipSpeed / messageText.Length;
+                    break;
+                case DialogueState.Auto:
+                    currentMessageSpeed = messageSpeed.messageInterval;
+                    break;
+                case DialogueState.Normal:
+                    currentMessageSpeed = messageSpeed.messageInterval;
+                    break;
+            }
 
             // もし前回のメッセージ表示がまだ終わっていない場合、キャンセルして待機を中断します
             messageCancellationSource?.Cancel();
@@ -316,99 +340,45 @@ namespace DialogueScript
 
             CancellationToken cancellationToken = messageCancellationSource.Token;
 
-            switch (currentDialogueState)
+            if (currentMessageSpeed != 0)
             {
-                case DialogueState.Debug:
-                    break;
-
-                case DialogueState.Skip:
-                    // テキストボックスを空にします
-                    messageTextArea.text = "";
-
-                    for (int messageTextIndex = 0; messageTextIndex < messageText.Length; messageTextIndex++)
+                for (int messageTextIndex = 0; messageTextIndex < messageText.Length; messageTextIndex++)
+                {
+                    // TextMeshProを使用した命令の作動
+                    if (messageText[messageTextIndex] == '<')
                     {
-                        await Task.Delay(messageSpeed.skipSpeed / messageText.Length);
-                        // キャンセル要求が発生した場合はタスクを終了します
-                        if (cancellationToken.IsCancellationRequested)
+                        while (messageText[messageTextIndex] != '>')
                         {
-                            return;
+                            messageTextArea.text += messageText[messageTextIndex];
+                            messageTextIndex++;
                         }
-
                         messageTextArea.text += messageText[messageTextIndex];
+                        messageTextIndex++;
                     }
 
-                    SetMessageEnd(true);
-                    break;
-
-                case DialogueState.Auto:
-                    if (messageSpeed.messageInterval != 0)
+                    await Task.Delay(currentMessageSpeed);
+                    // キャンセル要求が発生した場合はタスクを終了します
+                    if (cancellationToken.IsCancellationRequested)
                     {
-                        // テキストボックスを空にします
-                        messageTextArea.text = "";
-
-                        for (int messageTextIndex = 0; messageTextIndex < messageText.Length; messageTextIndex++)
-                        {
-                            await Task.Delay(messageSpeed.messageInterval);
-                            // キャンセル要求が発生した場合はタスクを終了します
-                            if (cancellationToken.IsCancellationRequested)
-                            {
-                                return;
-                            }
-
-                            messageTextArea.text += messageText[messageTextIndex];
-                        }
-
-                        await Task.Delay(messageSpeed.autoSpeed);
-                        // キャンセル要求が発生した場合はタスクを終了します
-                        if (cancellationToken.IsCancellationRequested)
-                        {
-                            return;
-                        }
-
-                        SetMessageEnd(true);
+                        return;
                     }
-                    else
-                    {
-                        messageTextArea.text = messageText;
 
-                        await Task.Delay(messageSpeed.autoSpeed);
-                        // キャンセル要求が発生した場合はタスクを終了します
-                        if (cancellationToken.IsCancellationRequested)
-                        {
-                            return;
-                        }
+                    messageTextArea.text += messageText[messageTextIndex];
+                }
+            }
+            else
+            {
+                messageTextArea.text = messageText;
+            }
 
-                        SetMessageEnd(true);
-                    }
-                    break;
-
-                case DialogueState.Normal:
-                    if (messageSpeed.messageInterval != 0)
-                    {
-                        // テキストボックスを空にします
-                        messageTextArea.text = "";
-
-                        for (int messageTextIndex = 0; messageTextIndex < messageText.Length; messageTextIndex++)
-                        {
-                            await Task.Delay(messageSpeed.messageInterval);
-                            // キャンセル要求が発生した場合はタスクを終了します
-                            if (cancellationToken.IsCancellationRequested)
-                            {
-                                return;
-                            }
-
-                            messageTextArea.text += messageText[messageTextIndex];
-                        }
-
-                        SetMessageEnd(true);
-                    }
-                    else
-                    {
-                        messageTextArea.text = messageText;
-
-                        SetMessageEnd(true);
-                    }
-                    break;
+            if (currentDialogueState == DialogueState.Auto)
+            {
+                await Task.Delay(messageSpeed.autoSpeed);
+                // キャンセル要求が発生した場合はタスクを終了します
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    return;
+                }
             }
         }
 

@@ -12,7 +12,7 @@
 
 <NameTextBox>false 
 <CharacterMode>あゆむ_通常
-<Message>見知らぬ地に、見知らぬ少女。
+<Message>見知らぬ地に、<color=red>見知らぬ少女。</color>
 これは誘拐か！？　声を出そうにも
 口をパクパクするだけだった。
 
