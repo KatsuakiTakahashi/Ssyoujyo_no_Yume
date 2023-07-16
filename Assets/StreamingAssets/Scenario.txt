@@ -11,7 +11,7 @@
 
 <NameTextBox>false 
 <CharacterMode>あゆむ_通常
-<Message>見知らぬ地に、<color=red>見知らぬ少女。</color>
+<Message>見知らぬ地に、見知らぬ少女。
 これは誘拐か！？　声を出そうにも
 口をパクパクするだけだった。
 
@@ -87,5 +87,248 @@
 　わたしのお母さんだっているはず……」
 
 <Message>「待っててね、今迎えに行くから……」
+
+
+<UserCommand>ActionPart
+
+
+<UserCommand>テキストボックス_通常
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_真顔
+<Message>「この光はなんでしょう……？」
+
+<NameTextBox>false 
+<Message>拾っても特に何も起きないようだ。
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_笑う
+<Message>「１つ拾っただけだとダメ！　みたいな感じですかね？
+　とりあえず持って進みませんか？」
+
+<NameTextBox>false 
+<CharacterMode>あゆむ_真顔
+<Message>光が少女のなかに吸い込まれ
+消えた。
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_喜び
+<Message>「これでOK！　ですね！
+　ふふふ、なんか楽しくなってきました！」
+
+<NameTextBox>false 
+<Message>笑顔で話かけてくれる少女はとてもかわいい。
+こんな状況でなければ、楽しめたのかもしれない。
+
+<Message>が、この少女はやはりおかしい。
+イカれている。
+
+<CharacterMode>あゆむ_真顔
+<Message>そもそもずっと夢のなかにいること自体、謎だ。
+
+<CharacterMode>あゆむ_通常
+<Message>しかも、声が出せない。
+少女の意思で、物を消すことだってできる。
+
+<CharacterMode>あゆむ_笑う
+<Message>いったい何者なのか……。
+思考を巡らせていると
+少女が喋りだした。
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「わたし、ずっと１人で……
+　久しぶりに人と触れ合った気がします。」
+
+<CharacterMode>あゆむ_喜び
+<Message>「ご主人のことは、ずっと窓から見ていたんですよ？
+　ふふ、いつもご主人は<color=red>２３時</color>にあそこにいるんです……
+わたし、知ってますからね！」
+
+<NameTextBox>false 
+<Message>……？
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「もう……きょとんとしちゃって～
+ご主人、かわいいところありますね！」
+
+<CharacterMode>あゆむ_真顔
+<NameTextBox>false 
+<Message>一方的な会話をしながら、進んでいく。
+この先に何があるかは、わからない。
+が、少女の機嫌を損ねない方がいい、と思った。
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_焦り
+<Message>「いったぁ～！」
+
+<NameTextBox>false 
+<Message>突然、そう突然。
+少女は盛大に転んだ。
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「わたし、結構ドジなんですよ……
+　いたた……」
+
+<NameTextBox>false 
+<CharacterMode>あゆむ_真顔
+<Message>立ち上がろうとする少女に
+<Message>無意識で手を差し伸べていた。
+
+<Message>「あ……
+　ありがとうございます……」
+
+<CharacterMode>あゆむ_笑う
+<Message>「さ、先に進みましょうか！
+　行きましょう！　ご主人！」
+
+
+<UserCommand>ActionPart
+
+
+<UserCommand>テキストボックス_通常
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_笑う
+<Message>「これは……たくさんのぬいぐるみ？
+　お母さんはいるかしら！」
+
+<NameTextBox>false
+<Message>お母さん……？
+目の前にあるのはぬいぐるみの山だ。
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_喜び
+<Message>「わたしのお母さん。
+　そうね、ご主人にも紹介しなきゃね！」
+
+<CharacterMode>あゆむ_笑う
+<Message>「ねぇ、一緒に探してくれる？
+　見た目はね……」
+
+<NameTextBox>false
+<Message>軽快な音と共に、ペンとスケッチブックが現れ
+少女はイラストを描いていく。
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_喜び
+<Message>「できた！
+　わたしのお母さんです！
+　ふふ、うまく描けました～」
+
+<NameTextBox>false
+<Message>そこに描かれていたのは、人間ではなく
+<color=red>ロップイヤーのうさぎのぬいぐるみ</color>だった。
+
+<CharacterMode>あゆむ_真顔
+<Message>ザザザ……
+
+//回想
+
+<UserCommand>テキストボックス_回想
+<Message>幼い頃に両親を亡くし、親戚に引き取られた。
+母親からもらったウサギのぬいぐるみ、これが宝物だった。
+
+<Message>おばあ様には「汚いから捨てなさい」と言われる。
+これはお母さんがくれた、大切なもの。
+
+<Message>……。
+
+<Message>…………。
+
+<Message>それは突然起こった。
+お母さんが……。
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「おばあ様！　やめて！　すてないで！」
+
+<UserCommand>ネームボックス_回想
+<Name>？？？
+<Message>「何歳になったらぬいぐるみ離れするんですか……
+　もうやめなさい！」
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「やめて！　やめてよ…わたしのお母さんを取らないで！！
+　わたしの【たった１人の】家族なの！」
+
+<NameTextBox>false
+<Message>引っ張り合いになって
+まずは腕が……。
+
+<Message>次は脚が……。
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「あ……────
+あああああああ！！！」
+
+<NameTextBox>false
+<Message>この先の記憶はあまりない。
+
+<Message>唯一、記憶にあるのは
+“さっきまで生命を宿していたであろう肉塊と”
+“新鮮な赤”だ。
+
+//回想終了
+
+<CharacterMode>あゆむ_焦り
+<UserCommand>テキストボックス_通常
+<Message>今見えたものは……
+少女の過去？
+
+<Message>少女の見た目はあまり変わらない。
+つまり、最近の出来事だったのか？
+
+<Message>少女に視線を動かすと
+酷く動揺していて……
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_驚き
+<Message>「お母さんは捨てられた……？
+　あ、れ……？」
+
+<UserCommand>テキストボックス_病み
+<CharacterMode>あゆむ_焦り
+<Message>「いや、きっと間違い。
+　だってここに“いる”もの。お母さんが」
+
+<CharacterMode>あゆむ_驚き
+<Message>「お母さんは捨てられてなんかいない。
+　お母さんは捨てられてなんかいない。
+　お母さんは捨てられてなんか……いないもの！」
+
+<NameTextBox>false
+<Message>虚ろな目で言い聞かせるように呟く。
+
+<UserCommand>テキストボックス_通常
+<CharacterMode>あゆむ_焦り
+<Message>……。
+
+少し経ち、顔を上げた少女は
+すがりつくように言った。
+
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「あの山から、お母さんを探したいんです。
+　手伝ってくれます……よね？」
+
+<CharacterMode>あゆむ_笑う
+<Message>「見た目はさっき描いた通りで
+　右足にアンクレットがついています……」
+
+<CharacterMode>あゆむ_通常
+<Message>「わたしのお母さんを……
+　どうか……お願いします」
+
 
 <UserCommand>ActionPart
