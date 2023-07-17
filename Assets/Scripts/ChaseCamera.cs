@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Syoujyo_no_Yume
 {
+    // 対象を追尾して動くカメラです。
     public class ChaseCamera : MonoBehaviour
     {
         // 追尾する対象を指定します。

@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 namespace DialogueScript
 {
+    // adventureパートを作成するスクリプトです。
     public class DialogueScript : MonoBehaviour
     {
         // シナリオファイルのファイル名を指定してください。
@@ -113,6 +114,7 @@ namespace DialogueScript
 
             if (isDebugMode)
             {
+                isDebugMode = false;
                 currentDialogueState = DialogueState.Debug;
             }
             else
@@ -260,6 +262,17 @@ namespace DialogueScript
             TaskCancell();
         }
 
+        // ここからシナリオをチェックできます。
+        public Task CheckStart(string none)
+        {
+            if (currentDialogueState == DialogueState.Debug)
+            {
+                currentDialogueState = DialogueState.Normal;
+            }
+
+            return Task.CompletedTask;
+        }
+
         // Dialogueスクリプトのアクティブ状態を設定します。
         public Task SetActive(string boolText)
         {
@@ -283,9 +296,9 @@ namespace DialogueScript
             return Task.CompletedTask;
         }
 
+        // テキスト送りのタスクをキャンセルします。
         private void TaskCancell()
         {
-            // タスクのキャンセルを行います
             if (messageCancellationSource != null)
             {
                 messageCancellationSource.Cancel();
@@ -313,6 +326,7 @@ namespace DialogueScript
             SetMessageEnd(true);
         }
 
+        // テキストを出力します。Messageメソッドで使用されます。
         private async Task MessageOutput(DialogueState currentDialogueState, string messageText)
         {
             // テキストボックスを空にします
@@ -382,6 +396,7 @@ namespace DialogueScript
             }
         }
 
+        // メッセージ表示の完了非完了を設定します。
         private void SetMessageEnd(bool setBool)
         {
             isMessageEnd = setBool;
@@ -567,6 +582,62 @@ namespace DialogueScript
             }
 
             throw new ArgumentNullException("存在しないキャラクターもしくは存在しないモードです。 : " + characterNameAndModeNameText);
+        }
+
+        // キャラクターの表示非表示を設定します。
+        public Task CharacterSetActive(string characterNameAndBoolText)
+        {
+            bool isCharacterName = true;
+            string characterName = "";
+            string boolText = "";
+
+            for (int textIndex = 0; textIndex < characterNameAndBoolText.Length; textIndex++)
+            {
+                if ((characterNameAndBoolText[textIndex] == '_' || characterNameAndBoolText[textIndex] == '＿') && isCharacterName)
+                {
+                    textIndex++;
+                    isCharacterName = false;
+                }
+
+                if (isCharacterName)
+                {
+                    characterName += characterNameAndBoolText[textIndex];
+                }
+                else
+                {
+                    boolText += characterNameAndBoolText[textIndex];
+                }
+            }
+
+            if (characterName == "")
+            {
+                characterName = nameTextArea.text;
+            }
+
+            for (int characterIndex = 0; characterIndex < characters.Length; characterIndex++)
+            {
+                if (characters[characterIndex].CharacterName == characterName)
+                {
+                    if (boolText == "true" || boolText == "True")
+                    {
+                        characters[characterIndex].gameObject.SetActive(true);
+                    }
+                    else if (boolText == "false" || boolText == "False")
+                    {
+                        characters[characterIndex].gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        throw new Exception("<MessageTextBox>に続くテキストは true もしくは false を設定してください。");
+                    }
+
+                    NextCommand();
+
+                    return Task.CompletedTask;
+                }
+            }
+
+            throw new ArgumentNullException("存在しないキャラクターもしくは存在しないモードです。 : " + characterNameAndBoolText);
         }
 
         // シーンを移動します。

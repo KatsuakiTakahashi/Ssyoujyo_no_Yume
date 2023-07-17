@@ -2,20 +2,25 @@ using UnityEngine;
 
 namespace Syoujyo_no_Yume
 {
+    // 現在の進行状況に対応した位置に移動する前方立ち入り禁止エリアです。
     public class FrontProhibitedArea : MonoBehaviour
     {
+        // ゲームコントローラーを設定してください。
         [SerializeField]
         private GameController gameController = null;
 
+        // プレイヤーを設定してください。
         [SerializeField]
         private GameObject player = null;
         Player playerCS;
 
+        // 立ち入り禁止エリアに侵入した際どこに移動させるか設定してください。
         [SerializeField]
         private Vector2 offset = new(15f, 0f);
 
+        // 移動先の位置を設定してください。
         [SerializeField]
-        private Vector2[] arePositions = null;
+        private Vector2[] setPositions = null;
 
         private Animator animator;
 
@@ -36,7 +41,7 @@ namespace Syoujyo_no_Yume
 
         public void NextAreaPosi()
         {
-            var position = arePositions[gameController.KeyItemCount];
+            var position = setPositions[gameController.KeyItemCount];
             transform.position = position;
         }
 

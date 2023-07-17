@@ -1,18 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Syoujyo_no_Yume
 {
-    // プレイヤーの後ろを一定間隔で付いてくる後方立ち入り禁止エリアです。
-    public class BackProhibitedArea : MonoBehaviour
+    // プレイヤーが侵入するとUIを表示し、それぞれのボタンに対応したアニメーションが再生されます。
+    public class CheckArea : MonoBehaviour
     {
-        // プレイヤーを設定してください。
         [SerializeField]
         private GameObject player = null;
         Player playerCS;
 
-        // エリアに侵入した際の移動先を設定してください。
         [SerializeField]
         private Vector2 offset = new(-10f, 0f);
+
+        [SerializeField]
+        private Button firstSelected=null;
 
         private Animator animator;
 
@@ -20,14 +22,6 @@ namespace Syoujyo_no_Yume
         {
             playerCS = player.GetComponent<Player>();
             animator = GetComponent<Animator>();
-        }
-
-        private void Update()
-        {
-            if (player.transform.position.x + offset.x > transform.position.x)
-            {
-                TargetChase();
-            }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -39,12 +33,19 @@ namespace Syoujyo_no_Yume
             }
         }
 
-        // 一定間隔以上離れるとプレイヤーについていきます。
-        private void TargetChase()
+        public void ButtonSelect()
         {
-            var position = transform.position;
-            position.x = player.transform.position.x + offset.x;
-            transform.position = position;
+            firstSelected.Select();
+        }
+
+        public void Clear()
+        {
+            animator.SetTrigger("Clear");
+        }
+
+        public void MissTake()
+        {
+            animator.SetTrigger("MissTake");
         }
 
         public void PlayerBackMove()

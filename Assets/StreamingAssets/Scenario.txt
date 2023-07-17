@@ -144,7 +144,7 @@
 
 <CharacterMode>あゆむ_喜び
 <Message>「ご主人のことは、ずっと窓から見ていたんですよ？
-　ふふ、いつもご主人は<color=red>２３時</color>にあそこにいるんです……
+ふふ、いつもご主人は<color=red>２0時分</color>にあそこにいるんです……
 わたし、知ってますからね！」
 
 <NameTextBox>false 
@@ -230,7 +230,7 @@
 <CharacterMode>あゆむ_真顔
 <Message>ザザザ……
 
-//回想
+<CharacterSetActive>あゆむ_false
 
 <UserCommand>テキストボックス_回想
 <Message>幼い頃に両親を亡くし、親戚に引き取られた。
@@ -278,7 +278,7 @@
 “さっきまで生命を宿していたであろう肉塊と”
 “新鮮な赤”だ。
 
-//回想終了
+<CharacterSetActive>あゆむ_true
 
 <CharacterMode>あゆむ_焦り
 <UserCommand>テキストボックス_通常
@@ -332,3 +332,174 @@
 
 
 <UserCommand>ActionPart
+
+<UserCommand>テキストボックス_病み
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_驚き
+<Message>「いやああああああああああああああああああああ
+　ああああああああああああああああ！！！！！！」
+
+<Message>「ご主人⁉　どうして⁉
+　わたしのお母さんを！！！！」
+
+<UserCommand>テキストボックス_通常
+<NameTextBox>false 
+<Message>目の前に転がっている“もの”
+少女が“お母さん”と呼ぶうさぎのぬいぐるみ。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_焦り
+<Message>「あ…………──」
+
+<UserCommand>テキストボックス_通常
+<NameTextBox>false 
+<Message>ザザザ……
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「なに⁉
+　今、視界が……」
+
+<NameTextBox>false 
+<Message>目の前の少女がだんだん透けて見えて……。
+もしかして、これは……。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_真顔
+<Message>「夢から覚めようとしている……？」
+
+<NameTextBox>false 
+<CharacterMode>あゆむ_驚き
+<Message>夢は覚めるものだ。
+すっかり失念していた。
+これで解放される……。
+
+<UserCommand>テキストボックス_病み
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_驚き
+<Message>「嫌だ、嫌だ、嫌だ、嫌だ、嫌だ、嫌だ、嫌だ！！
+　ご主人はなんで、わたしから幸せをうばうの……！」
+
+<UserCommand>テキストボックス_通常
+<NameTextBox>false 
+<Message>少女の顔は良く見えない。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_焦り
+<Message>「ずっと夢の中で生きていたかった」
+
+<UserCommand>テキストボックス_病み
+<CharacterMode>あゆむ_驚き
+<Message>「もう終わり……わたしは死ぬんだ。
+　現実では生きていけないもの！」
+
+<NameTextBox>false 
+<Message>少女の様子がますますおかしくなる。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「ご主人がいるから、生きていたのに
+　生きたいと思っていたのに！」
+
+<UserCommand>テキストボックス_通常
+<NameTextBox>false 
+<CharacterMode>あゆむ_焦り
+<Message>膝から崩れ落ちた少女は
+ポツリポツリと言葉を口にする。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「わたしの、理想の夢の、はずじゃない……
+　どうして夢まで、辛い思いをしなきゃ
+　いけないの……」
+
+<NameTextBox>false 
+<CharacterMode>あゆむ_真顔
+<Message>少女の中から、青い光が出てくる。
+これは……先ほど３つ目を回収した
+謎の光だ。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_焦り
+<Message>「なに…………？」
+
+<CharacterMode>あゆむ_真顔
+<NameTextBox>false 
+<Message>３つの光が１つに合体する。
+一層強く光ったそれは
+裂けたうさぎのぬいぐるみへと向かっていく。
+
+
+<Message>光が吸い込まれ、
+うさぎのぬいぐるみが元の姿に……。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<Message>「おかあ、さん……？
+　あ…………──」
+
+<CharacterMode>あゆむ_通常
+<NameTextBox>false 
+<Message>少女は嬉しそうに笑った。
+さっきまでの絶望とは真逆で
+顔がほころんでいた。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_笑う
+<Message>「あはは！　やっぱり、わたしの理想の夢だわ！
+　お母さんが帰ってきた！！」
+
+<NameTextBox>false 
+<Message>消えかかっていた、少女の姿は
+ぬいぐるみの復活で
+はっきりと見えるようになった。
+
+
+<NameTextBox>false 
+<UserCommand>テキストボックス_病み
+<Message>ということは、もしや
+夢から覚めることが出来なくなった……？
+
+<UserCommand>テキストボックス_通常
+<CharacterMode>あゆむ_喜び
+<Message>この【夢のなかの現実】に気が付いたのは
+彼女もだった。
+
+<Message>立ち上がった少女は
+こちらに歩み寄って、笑顔で……。
+
+<NameTextBox>true 
+<UserCommand>ネームボックス_あゆむ
+<Name>あゆむ
+<CharacterMode>あゆむ_笑う
+<Message>「夢からは逃がさない……
+　ずーっと共にこの世界で…………」
+
+<CharacterMode>あゆむ_喜び
+<Message>「ご主人と【永遠に】醒めない夢を……
+　一緒に…………」
+
+
+<NameTextBox>false 
+<Message>──────少女は【永遠に】夢のなか
+
+
+<LoadScene>GameClear

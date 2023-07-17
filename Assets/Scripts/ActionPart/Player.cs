@@ -16,8 +16,10 @@ namespace Syoujyo_no_Yume
         }
 
         public PlayerState CurrentPlayerState { get; private set; } = PlayerState.Idle;
+        // 移動速度を設定してください。
         [SerializeField]
         private float walkSpeed = 1f;
+        // ジャンプ力を設定してください。
         [SerializeField]
         private Vector2 jumpPower = new(0, 8);
 

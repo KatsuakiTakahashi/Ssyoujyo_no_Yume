@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 namespace Syoujyo_no_Yume
 {
+    // プレイヤーに踏まれた際アニメーションとイベントを作動させるスイッチです。
     public class Switch : MonoBehaviour
     {
         // プレイヤー

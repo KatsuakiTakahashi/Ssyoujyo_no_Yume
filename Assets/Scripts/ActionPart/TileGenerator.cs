@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Syoujyo_no_Yume
 {
+    // 一列に対象を設定した個数生成します。
     public class TileGenerator : MonoBehaviour
     {
         // 生成するオブジェクトのプレハブ
@@ -11,7 +12,7 @@ namespace Syoujyo_no_Yume
         [SerializeField]
         private int numberOTiles = 0;
 
-        private void Start()
+        private void Awake()
         {
             GenerateTiles();
         }
