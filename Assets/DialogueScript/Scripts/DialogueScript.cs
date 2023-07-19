@@ -31,7 +31,7 @@ namespace DialogueScript
         [SerializeField]
         private bool isDebugMode = false;
 
-        private enum DialogueState
+        public enum DialogueState
         {
             Debug,
             Hide,
@@ -39,7 +39,7 @@ namespace DialogueScript
             Auto,
             Normal,
         }
-        private DialogueState currentDialogueState = DialogueState.Normal;
+        public DialogueState CurrentDialogueState { get; private set; } = DialogueState.Normal;
 
         [Serializable]
         private struct MessageSpeed
@@ -115,7 +115,7 @@ namespace DialogueScript
             if (isDebugMode)
             {
                 isDebugMode = false;
-                currentDialogueState = DialogueState.Debug;
+                CurrentDialogueState = DialogueState.Debug;
             }
             else
             {
@@ -136,7 +136,7 @@ namespace DialogueScript
                 return;
             }
 
-            switch (currentDialogueState)
+            switch (CurrentDialogueState)
             {
                 case DialogueState.Debug:
                     NextCommand();
@@ -166,7 +166,7 @@ namespace DialogueScript
             {
                 nameTextBox.SetActive(true);
                 messageTextBox.SetActive(true);
-                currentDialogueState = DialogueState.Normal;
+                CurrentDialogueState = DialogueState.Normal;
             }
         }
 
@@ -174,7 +174,7 @@ namespace DialogueScript
         {
             if (Input.GetButtonUp("Fire1"))
             {
-                currentDialogueState = DialogueState.Normal;
+                CurrentDialogueState = DialogueState.Normal;
             }
             else
             {
@@ -189,7 +189,7 @@ namespace DialogueScript
         {
             if (Input.GetButtonUp("Fire2"))
             {
-                currentDialogueState = DialogueState.Normal;
+                CurrentDialogueState = DialogueState.Normal;
             }
             else
             {
@@ -206,16 +206,15 @@ namespace DialogueScript
             {
                 nameTextBox.SetActive(false);
                 messageTextBox.SetActive(false);
-                currentDialogueState = DialogueState.Hide;
+                CurrentDialogueState = DialogueState.Hide;
             }
             else if (Input.GetButtonDown("Fire1"))
             {
-                currentDialogueState = DialogueState.Skip;
-                NextCommand();
+                CurrentDialogueState = DialogueState.Skip;
             }
             else if (Input.GetButtonDown("Fire2"))
             {
-                currentDialogueState = DialogueState.Auto;
+                CurrentDialogueState = DialogueState.Auto;
             }
             else if (Input.GetButtonDown("Submit"))
             {
@@ -265,9 +264,9 @@ namespace DialogueScript
         // ここからシナリオをチェックできます。
         public Task CheckStart(string none)
         {
-            if (currentDialogueState == DialogueState.Debug)
+            if (CurrentDialogueState == DialogueState.Debug)
             {
-                currentDialogueState = DialogueState.Normal;
+                CurrentDialogueState = DialogueState.Normal;
             }
 
             return Task.CompletedTask;
@@ -305,9 +304,9 @@ namespace DialogueScript
                 messageCancellationSource = null;
             }
 
-            if (currentDialogueState != DialogueState.Debug)
+            if (CurrentDialogueState != DialogueState.Debug)
             {
-                currentDialogueState = DialogueState.Normal;
+                CurrentDialogueState = DialogueState.Normal;
             }
         }
 
@@ -322,7 +321,7 @@ namespace DialogueScript
             }
 
             SetMessageEnd(false);
-            await MessageOutput(currentDialogueState, messageText);
+            await MessageOutput(CurrentDialogueState, messageText);
             SetMessageEnd(true);
         }
 
@@ -400,7 +399,7 @@ namespace DialogueScript
         private void SetMessageEnd(bool setBool)
         {
             isMessageEnd = setBool;
-            if (messageEndIcon != null && currentDialogueState != DialogueState.Hide)
+            if (messageEndIcon != null && CurrentDialogueState != DialogueState.Hide)
             {
                 messageEndIcon.SetActive(setBool);
             }
