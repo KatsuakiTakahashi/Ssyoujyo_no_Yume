@@ -366,17 +366,18 @@ namespace DialogueScript
                             messageTextIndex++;
                         }
                         messageTextArea.text += messageText[messageTextIndex];
-                        messageTextIndex++;
                     }
-
-                    await Task.Delay(currentMessageSpeed);
-                    // キャンセル要求が発生した場合はタスクを終了します
-                    if (cancellationToken.IsCancellationRequested)
+                    else
                     {
-                        return;
-                    }
+                        await Task.Delay(currentMessageSpeed);
+                        // キャンセル要求が発生した場合はタスクを終了します
+                        if (cancellationToken.IsCancellationRequested)
+                        {
+                            return;
+                        }
 
-                    messageTextArea.text += messageText[messageTextIndex];
+                        messageTextArea.text += messageText[messageTextIndex];
+                    }
                 }
             }
             else
@@ -503,6 +504,19 @@ namespace DialogueScript
             return Task.CompletedTask;
         }
 
+        // メッセージテキストボックスのフォントカラーを変更します。
+        public Task MessageFontColor(string colorText)
+        {
+            if(!ColorUtility.TryParseHtmlString(colorText, out var color))
+            {
+                throw new Exception("メッセージフォントカラーの設定は＃000000のように行って下さい。 : " + colorText);
+            }
+
+            messageTextArea.color = color;
+            NextCommand();
+            return Task.CompletedTask;
+        }
+
         // ネームテキストボックスの表示非表示を設定します。
         public Task NameTextBox(string boolText)
         {
@@ -534,6 +548,19 @@ namespace DialogueScript
             }
 
             nameTextArea.fontSize = value;
+            NextCommand();
+            return Task.CompletedTask;
+        }
+
+        // ネームテキストボックスのフォントカラーを変更します。
+        public Task NameFontColor(string colorText)
+        {
+            if (!ColorUtility.TryParseHtmlString(colorText, out var color))
+            {
+                throw new Exception("ネームフォントカラーの設定は＃000000のように行って下さい。 : " + colorText);
+            }
+
+            nameTextArea.color = color;
             NextCommand();
             return Task.CompletedTask;
         }

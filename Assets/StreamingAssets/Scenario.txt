@@ -225,7 +225,7 @@
 
 <NameTextBox>false
 <Message>そこに描かれていたのは、人間ではなく
-<color=red>ロップイヤーのうさぎのぬいぐるみ</color>だった。
+<color=red>うさぎのぬいぐるみ</color>だった。
 
 <CharacterMode>あゆむ_真顔
 <Message>ザザザ……
@@ -233,8 +233,9 @@
 <CharacterSetActive>あゆむ_false
 
 <UserCommand>テキストボックス_回想
-<Message><color=white>幼い頃に両親を亡くし、親戚に引き取られた。
-母親からもらったウサギのぬいぐるみ、これが宝物だった。</color>
+<MessageFontColor>#FFFFFF
+<Message>幼い頃に両親を亡くし、親戚に引き取られた。
+母親からもらったウサギのぬいぐるみ、これが宝物だった。
 
 <Message>おばあ様には「汚いから捨てなさい」と言われる。
 これはお母さんがくれた、大切なもの。
@@ -268,7 +269,7 @@
 
 <UserCommand>ネームボックス_あゆむ
 <Name>あゆむ
-<Message>「あ……────
+<Message>「あ……
 あああああああ！！！」
 
 <NameTextBox>false
@@ -282,6 +283,7 @@
 
 <CharacterMode>あゆむ_焦り
 <UserCommand>テキストボックス_通常
+<MessageFontColor>#000000
 <Message>今見えたものは……
 少女の過去？
 
@@ -297,6 +299,7 @@
 <Message>「お母さんは捨てられた……？
 　あ、れ……？」
 
+<MessageFontColor>#FFFFFF
 <UserCommand>テキストボックス_病み
 <CharacterMode>あゆむ_焦り
 <Message>「いや、きっと間違い。
@@ -310,11 +313,12 @@
 <NameTextBox>false
 <Message>虚ろな目で言い聞かせるように呟く。
 
+<MessageFontColor>#000000
 <UserCommand>テキストボックス_通常
 <CharacterMode>あゆむ_焦り
 <Message>……。
 
-少し経ち、顔を上げた少女は
+<Message>少し経ち、顔を上げた少女は
 すがりつくように言った。
 
 <UserCommand>ネームボックス_あゆむ
@@ -330,10 +334,10 @@
 <Message>「わたしのお母さんを……
 　どうか……お願いします」
 
-
 <UserCommand>ActionPart
 
 <UserCommand>テキストボックス_病み
+<MessageFontColor>#FFFFFF
 <NameTextBox>true 
 <UserCommand>ネームボックス_あゆむ
 <Name>あゆむ
@@ -341,9 +345,10 @@
 <Message>「いやああああああああああああああああああああ
 　ああああああああああああああああ！！！！！！」
 
-<Message>「ご主人⁉　どうして⁉
+<Message>「ご主人!?　どうして!?
 　わたしのお母さんを！！！！」
 
+<MessageFontColor>#000000
 <UserCommand>テキストボックス_通常
 <NameTextBox>false 
 <Message>目の前に転がっている“もの”
@@ -353,7 +358,7 @@
 <UserCommand>ネームボックス_あゆむ
 <Name>あゆむ
 <CharacterMode>あゆむ_焦り
-<Message>「あ…………──」
+<Message>「あ…………」
 
 <UserCommand>テキストボックス_通常
 <NameTextBox>false 
@@ -362,7 +367,7 @@
 <NameTextBox>true 
 <UserCommand>ネームボックス_あゆむ
 <Name>あゆむ
-<Message>「なに⁉
+<Message>「なに!?
 　今、視界が……」
 
 <NameTextBox>false 
@@ -381,6 +386,7 @@
 すっかり失念していた。
 これで解放される……。
 
+<MessageFontColor>#FFFFFF
 <UserCommand>テキストボックス_病み
 <NameTextBox>true 
 <UserCommand>ネームボックス_あゆむ
@@ -388,6 +394,7 @@
 <CharacterMode>あゆむ_驚き
 <Message>「嫌だ、嫌だ、嫌だ、嫌だ、嫌だ、嫌だ、嫌だ！！
 　ご主人はなんで、わたしから幸せをうばうの……！」
+<MessageFontColor>#000000
 
 <UserCommand>テキストボックス_通常
 <NameTextBox>false 
@@ -399,6 +406,7 @@
 <CharacterMode>あゆむ_焦り
 <Message>「ずっと夢の中で生きていたかった」
 
+<MessageFontColor>#FFFFFF
 <UserCommand>テキストボックス_病み
 <CharacterMode>あゆむ_驚き
 <Message>「もう終わり……わたしは死ぬんだ。
@@ -413,6 +421,7 @@
 <Message>「ご主人がいるから、生きていたのに
 　生きたいと思っていたのに！」
 
+<MessageFontColor>#000000
 <UserCommand>テキストボックス_通常
 <NameTextBox>false 
 <CharacterMode>あゆむ_焦り
@@ -452,7 +461,7 @@
 <UserCommand>ネームボックス_あゆむ
 <Name>あゆむ
 <Message>「おかあ、さん……？
-　あ…………──」
+　あ…………」
 
 <CharacterMode>あゆむ_通常
 <NameTextBox>false 
@@ -472,12 +481,13 @@
 ぬいぐるみの復活で
 はっきりと見えるようになった。
 
-
+<MessageFontColor>#FFFFFF
 <NameTextBox>false 
 <UserCommand>テキストボックス_病み
 <Message>ということは、もしや
 夢から覚めることが出来なくなった……？
 
+<MessageFontColor>#000000
 <UserCommand>テキストボックス_通常
 <CharacterMode>あゆむ_喜び
 <Message>この【夢のなかの現実】に気が付いたのは
@@ -499,7 +509,7 @@
 
 
 <NameTextBox>false 
-<Message>──────少女は【永遠に】夢のなか
+<Message>------少女は【永遠に】夢のなか
 
 
 <LoadScene>GameClear
